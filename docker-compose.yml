@@ -1,0 +1,16 @@
+version: '1'
+
+services:
+  SFDJ:
+    restart: always
+    build: 
+      dockerfile: Dockerfile
+    image: sfdj:latest
+    expose:
+      - "8011:8011"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/timezone:/etc/timezone:ro"
+      - "./SFDJ:."
+    env_file:
+      - .env
